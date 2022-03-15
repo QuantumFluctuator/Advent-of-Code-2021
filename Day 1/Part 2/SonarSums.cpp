@@ -20,14 +20,8 @@ int main() {
 		while (getline(file, s)) {
 			z = stoi(s);
 
-			cout << x << " + " << y << " + " << z << " > " << sum << "? : ";
-
 			if (x + y + z > sum) {
 				count++;
-				cout << "true" << endl;
-			}
-			else {
-				cout << "false" << endl;
 			}
 			sum = x + y + z;
 			x = y;
