@@ -7,7 +7,8 @@
 using namespace std;
 
 int main() {
-	int* gamma((int*)malloc(DATASIZE * sizeof(int))), * epsilon((int*)malloc(DATASIZE * sizeof(int))), * count((int*)calloc(DATASIZE, sizeof(int))), counttotal(0), eps(0), gam(0);
+	bool* gamma((bool*)malloc(DATASIZE * sizeof(bool))), * epsilon((bool*)malloc(DATASIZE * sizeof(bool)));
+	int* count((int*)calloc(DATASIZE, sizeof(int))), counttotal(0), eps(0), gam(0);
 	string s;
 	ifstream file;
 
@@ -25,13 +26,13 @@ int main() {
 	}
 
 	for (int i(0); i < DATASIZE; i++) {
-		epsilon[i] = (count[i] < (counttotal / 2)) ? 1 : 0;
-		gamma[i] = (count[i] < (counttotal / 2)) ? 0 : 1;
+		epsilon[i] = (count[i] < (counttotal / 2)) ? true : false;
+		gamma[i] = (count[i] < (counttotal / 2)) ? false : true;
 	}
 
 	for (int i(0); i < DATASIZE; i++) {
-		eps += (epsilon[i] == 1) ? (int)pow(2, DATASIZE - (i + 1)) : 0;
-		gam += (gamma[i] == 1) ? (int)pow(2, DATASIZE - (i + 1)) : 0;
+		eps += (epsilon[i]) ? (int)pow(2, DATASIZE - (i + 1)) : 0;
+		gam += (gamma[i]) ? (int)pow(2, DATASIZE - (i + 1)) : 0;
 	}
 
 	cout << "gamma is:\t" << gam << endl;
