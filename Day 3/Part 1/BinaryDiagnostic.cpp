@@ -31,8 +31,8 @@ int main() {
 	}
 
 	for (int i(0); i < DATASIZE; i++) {
-		eps += (epsilon[i]) ? (int)pow(2, DATASIZE - (i + 1)) : 0;
-		gam += (gamma[i]) ? (int)pow(2, DATASIZE - (i + 1)) : 0;
+		eps += (epsilon[i]) ? (1 << (DATASIZE - (i + 1))) : 0;
+		gam += (gamma[i]) ? (1 << (DATASIZE - (i + 1))) : 0;
 	}
 
 	cout << "gamma is:\t" << gam << endl;
