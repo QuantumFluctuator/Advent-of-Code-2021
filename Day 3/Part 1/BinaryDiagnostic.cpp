@@ -46,4 +46,6 @@ int main() {
 	free(gamma);
 	free(epsilon);
 	free(count);
+
+	return 0;
 }
